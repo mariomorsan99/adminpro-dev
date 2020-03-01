@@ -1,1 +1,37 @@
-<p>graficas1 works!</p>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4>{{graficos.grafico1.leyenda}}</h4>
+                <app-donuts [ChartType]="graficos.grafico1.type" [ChartData]="graficos.grafico1.data" [ChartLabels]="graficos.grafico1.labels"></app-donuts>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4>{{graficos.grafico2.leyenda}}</h4>
+                <app-donuts [ChartType]="graficos.grafico2.type" [ChartData]="graficos.grafico2.data" [ChartLabels]="graficos.grafico2.labels"></app-donuts>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4>{{graficos.grafico3.leyenda}}</h4>
+                <app-donuts [ChartType]="graficos.grafico3.type" [ChartData]="graficos.grafico3.data" [ChartLabels]="graficos.grafico3.labels"></app-donuts>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4>{{graficos.grafico4.leyenda}}</h4>
+                <app-donuts [ChartType]="graficos.grafico4.type" [ChartData]="graficos.grafico4.data" [ChartLabels]="graficos.grafico4.labels"></app-donuts>
+            </div>
+        </div>
+    </div>
+</div>
