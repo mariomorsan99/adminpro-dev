@@ -10,7 +10,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 
 import { ChartsModule } from 'ng2-charts';
 import { DonutsComponent } from '../components/donuts/donuts.component';
-
+import { AccountSettingComponent } from './account-setting/account-setting.component';
+import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
    declarations: [
        PagesComponent,
@@ -18,7 +19,8 @@ import { DonutsComponent } from '../components/donuts/donuts.component';
        ProgressComponent,
        Graficas1Component,
        IncrementadorComponent,
-       DonutsComponent
+       DonutsComponent,
+       AccountSettingComponent
    ],
    exports: [
     PagesComponent,
@@ -31,7 +33,8 @@ import { DonutsComponent } from '../components/donuts/donuts.component';
        SharedModule,
        PAGES_ROUTES,
        FormsModule,
-       ChartsModule
+       ChartsModule,
+       BrowserModule
    ]
 })
 
