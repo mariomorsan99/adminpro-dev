@@ -12,6 +12,8 @@ import { ChartsModule } from 'ng2-charts';
 import { DonutsComponent } from '../components/donuts/donuts.component';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 @NgModule({
    declarations: [
        PagesComponent,
@@ -20,7 +22,9 @@ import { BrowserModule } from '@angular/platform-browser';
        Graficas1Component,
        IncrementadorComponent,
        DonutsComponent,
-       AccountSettingComponent
+       AccountSettingComponent,
+       PromesasComponent,
+       RxjsComponent
    ],
    exports: [
     PagesComponent,
