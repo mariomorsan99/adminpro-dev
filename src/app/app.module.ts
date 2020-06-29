@@ -15,6 +15,10 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumsComponent } from './shared/breadcrums/breadcrums.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { ServiceModule } from '../app/servicios/service.module';
+
 
 
 @NgModule({
@@ -34,6 +38,9 @@ import { RegisterComponent } from './login/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ServiceModule,
     APP_ROUTES
   ],
   providers: [],
