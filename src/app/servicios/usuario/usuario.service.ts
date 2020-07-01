@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
+import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 
 
 
@@ -20,7 +21,7 @@ export class UsuarioService {
   usuario:Usuario
   token: string;
 
-  constructor(public http:HttpClient, private _router: Router) {
+  constructor(public http:HttpClient, private _router: Router, private _subirarchivo: SubirArchivoService) {
     console.log('servicio listo de usuarios');
     this.cargarStorage();
    }
@@ -62,7 +63,7 @@ export class UsuarioService {
    loginGoogle(token: string){
     let url= URL_SERVICIOS +'/login/google';
     return this.http.post(url,{token}).pipe(map((resp:any)=>{
-       console.log(resp);
+       console.log(resp.usuario);
        this.guardarStorage(resp.id, resp.token, resp.usuario);
        return true;
     }));
@@ -84,8 +85,39 @@ export class UsuarioService {
     localStorage.setItem('usuario', JSON.stringify(usuario));
 
     this.usuario=usuario;
+    console.log(this.usuario);
     this.token=token;
 
+   }
+
+   actualizarUsuario(usuario:Usuario){
+     let url =URL_SERVICIOS+'/usuario/'+ usuario._id;
+     url+='?token='+this.token;
+
+    return this.http.put(url,usuario).pipe(map((resp:any)=>{
+      if(resp.ok){
+        let usuarioDB:Usuario=resp.usuario;
+        this.guardarStorage(usuarioDB._id,this.token,usuarioDB);
+        let mensajeUsuario=`El usuario ${resp.usuario.email} se actualizo correctamente `;
+        Swal.fire(mensajeUsuario,resp.email,'success');
+        return true;
+      }
+    }));
+
+   }
+
+   cambiarImagen(file:File, id:string){
+
+  this._subirarchivo.subirArchivo(file,'usuarios',id).then((resp:any)=>{
+
+    this.usuario.img=resp.usuario.img;
+    Swal.fire('imagen actualizada',this.usuario.nombre, 'success');
+    this.guardarStorage(id,this.token,this.usuario);
+
+    console.log(resp);
+  }).catch(resp=>{
+    console.log(resp);
+  })
    }
 
 

@@ -18,6 +18,8 @@ import { RegisterComponent } from './login/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { ServiceModule } from '../app/servicios/service.module';
+import { PipesModule } from './pipes/pipes.module';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -33,7 +35,8 @@ import { ServiceModule } from '../app/servicios/service.module';
     SidebarComponent,
     BreadcrumsComponent,
     PagesComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { ServiceModule } from '../app/servicios/service.module';
     FormsModule,
     ReactiveFormsModule,
     ServiceModule,
+    PipesModule,
     APP_ROUTES
   ],
   providers: [],
