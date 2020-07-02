@@ -8,6 +8,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { RegisterComponent } from './login/register.component';
 import { LoginGuardGuard } from './servicios/guards/login-guard.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 
 
@@ -21,6 +22,8 @@ const AppRoutes: Routes = [
       {path: 'progress', component: ProgressComponent },
       {path: 'garfica1', component: Graficas1Component },
       {path: 'profile', component: ProfileComponent },
+      //Mantenimiento
+      {path: 'usuarios', component: UsuariosComponent },
       {path: '', redirectTo: '/dashboard', pathMatch: 'full'}, 
     ]
   },

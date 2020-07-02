@@ -49,10 +49,10 @@ export class ProfileComponent implements OnInit {
     //image in base64
     reader.onloadend=()=>{
       this.imagenTemp=reader.result;
-      console.log(this.imagenTemp);
+      // console.log(this.imagenTemp);
     } 
 
-    console.log(this.imagenSubir);
+    // console.log(this.imagenSubir);
     
 
   }

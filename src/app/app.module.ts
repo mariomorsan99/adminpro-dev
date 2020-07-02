@@ -20,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ServiceModule } from '../app/servicios/service.module';
 import { PipesModule } from './pipes/pipes.module';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 
 
@@ -36,7 +37,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     BreadcrumsComponent,
     PagesComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

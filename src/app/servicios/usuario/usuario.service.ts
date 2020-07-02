@@ -19,7 +19,9 @@ export class UsuarioService {
 
 
   usuario:Usuario
+  usuarios:Usuario[];
   token: string;
+  total:number;
 
   constructor(public http:HttpClient, private _router: Router, private _subirarchivo: SubirArchivoService) {
     console.log('servicio listo de usuarios');
@@ -107,7 +109,6 @@ export class UsuarioService {
    }
 
    cambiarImagen(file:File, id:string){
-
   this._subirarchivo.subirArchivo(file,'usuarios',id).then((resp:any)=>{
 
     this.usuario.img=resp.usuario.img;
@@ -118,6 +119,16 @@ export class UsuarioService {
   }).catch(resp=>{
     console.log(resp);
   })
+   }
+
+   obtenerUsuarios(desde:number=0){
+    let url =URL_SERVICIOS+'/usuario';
+    url+='?desde='+desde;
+    return this.http.get(url).pipe(map((resp:any)=>{
+      this.usuarios=resp.usuarios;
+      this.total=resp.length;
+      console.log(resp);
+    }))
    }
 
 
